@@ -16,16 +16,22 @@
   </head>
   <body>
     <div id="container">
-      <h1>
-        TO-DO LIST <span id="plus"><i class="fas fa-plus"></i></span>
-      </h1>
-      <input type="text" placeholder="Add New Todo" />
-
+      <h1>TO-DO LIST</h1>
+      <form action="/" method="POST">
+        <input type="text" placeholder="Add New Todo" name="name" id="name" />
+        <button type="submit" id="plus"><i class="fas fa-plus"></i></button>
+        <!-- <button type="submit">Add</button> -->
+      </form>
+      <br />
       <ul>
+        <% for (let task of tasks){ %>
         <li>
-          <span class="list_items"><i class="far fa-trash-alt"></i></span>Go to
-          Potion Class
+          <span class="list_items"
+            ><a class="far fa-trash-alt" href="/remove/<%=  task._id%> "></a
+          ></span>
+          <%= task.name %>
         </li>
+        <% } %>
       </ul>
     </div>
 
